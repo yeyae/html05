@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      console.log(window);
+    </script>
+  </head>
+  <body>
+    <h1 id="h1">이곳에 마우스를 올려보세요.</h1>
+    <button onclick="f(event)">클릭하세요</button>
+    <!-- 이런식으로 이벤트를 부를때는 꼭 event를 넘겨주자!-->
+    <script>
+      function f(e) {
+        // ev1 : 이벤트 객체
+        // 기본적으로 이벤트 객체가 전달이 된다. (우리가 매개변수를 입력하지 않았을때)
+        console.log(e.type); // type은 이벤트의 종류
+        console.log(e.target); // target에는 이벤트가 발생한 dom 객체의 정보가 들어있다.
+      }
+      let h1tag = document.getElementById("h1");
+      h1tag.onmouseover = f; // 이벤트 함수 등록
+    </script>
+  </body>
+</html>

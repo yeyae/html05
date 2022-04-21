@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    function popup() {
+      let html = prompt("HTML 텍스트 또는 그냥 텍스트를 입력하세요.");
+      let ptag = document.getElementById("text"); // id속성의 값이 text인 태그 가져오기
+      ptag.innerHTML = html; // 해당 dom 내의 innerHTML을 prompt 창을 통해 입력받은 값으로 설정
+    }
+  </script>
+  <body>
+    <h1>innerHTML</h1>
+    <hr />
+    <p onclick="popup()" id="text">이번 여름에는 어디로 여행을 갈까요?</p>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function query() {
+        let ret = confirm("네이버로 이동하시겠습니까?"); // 결과값은 true of false;
+        return ret;
+      }
+      function noAction(e) {
+        // 이벤트 객체 e
+        e.preventDefault();
+      }
+    </script>
+  </head>
+  <body>
+    <h1>이벤트의 디폴트 행동</h1>
+    <hr />
+    <a href="https://www.naver.com" onclick="event.preventDefault()"
+      >네이버 이동</a
+    >
+    <!-- preventDefault() => 이벤트 행동 취소 -->
+    <form>
+      <input type="checkbox" />빵<br />
+      <input type="checkbox" onclick="noAction(event)" />빵<br />
+    </form>
+  </body>
+</html>

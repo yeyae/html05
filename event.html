@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function over(obj) {
+        obj.style.backgroundColor = "orchid";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>HTML 태그 마우스 이벤트</h1>
+    <hr />
+    <p
+      id="text"
+      onmouseover="over(this)"
+      onmouseout="this.style.backgroundColor = 'white'"
+    >
+      마우스를 올리면 색이 변경됩니다.
+    </p>
+    <script>
+      let ptag = document.getElementById("text");
+      //   ptag.addEventListener("click", function () {
+      //     console.log("ok");
+      //     this.style.backgroundColor = "blue";
+      //   });
+
+      function click() {
+        let p = document.getElementById("text");
+        p.style.backgroundColor = "blue";
+      }
+      ptag.onclick = click; // ptag의 onclick 이벤트 리스너로 click 함수를 지정.
+    </script>
+  </body>
+</html>

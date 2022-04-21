@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // document.write() 함수 사용시 주의할점
+      /*
+        HTML문서를 한번에 쭉 출력한 다음에 이벤트 처리를 통해 동적으로 write() 함수를
+        사용하면, 기존에 있던 모든 HTML 내용들이 지워지고, write()를통해 작성한 코드만 출력이 된다.
+
+        document => 열렸다가 닫히는 과정을 거친다.
+        document가 열림 => loding 상태
+        document가 닫힘(html 코드 출력 완료) => complete
+
+        onclick 이벤트를 발생시키기 전에는 complete 된 상태
+
+        document가 닫혀있다 => 이상태에서 write() 메소드(함수)를 사용하면
+        기존의 내용을 모두 날리고 새로 document 객체를 열어서 출력한 다음에 다시 닫습니다.
+
+        그래서 여러분들이 동적으로 html코드를 수정하려고 할때는 write() 함수를 사용하면 안된다!!!
+        동적으로 html 코드를 수정한다 => 이벤트 처리를 통해 html코드를 수정하려고 할때
+        
+        그래서 동적으로 html 코드를 수정하려면 
+        수정할 dom 객체를 getElementById, getElementByClassName, getElementByTagName으로
+        찾은 다음에 innerHTML() 함수를 통해서 변경해줘야한다.
+      */
+    </script>
+  </head>
+  <body onclick="document.write('<h3>클릭되었습니다.</h3>')">
+    <h1>여기에 무언가 제목이 있었습니다.</h1>
+    <hr />
+    <p>화면 아무 곳이나 클릭해보세요.</p>
+  </body>
+</html>

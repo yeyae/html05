@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p style="color: blue">
+      이것은
+      <span style="color: red">문장입니다.</span>
+    </p>
+    <form>
+      <input type="text" />
+      <input type="button" value="텍스트" id="button" />
+    </form>
+    <script>
+      document.body.addEventListener("click", capture, true);
+      // capture 라는 함수를 이벤트 캡처 단계에만 사용하도록 지정 : 세번째 매개변수가 true
+      document.body.addEventListener("click", bubble, false);
+      // bubble 이라는 함수를 이벤트 버블 단계에만 사용하도록 지정 : 세번째 매개변수가 false
+      let button = document.getElementById("button");
+      button.addEventListener("click", bubble, false);
+
+      //body 태그에 event 전달을 막는 prevent 함수 클릭 리스너로 등록
+      document.body.addEventListener("click", prevent);
+
+      function prevent(e) {
+        e.stopPropagation(); // 이벤트 전달 막기
+      }
+
+      function capture(e) {
+        //e 는 이벤트 객체,
+        //이벤트 캡처 => 최상위 window 에서 이벤트 발생 타겟까지
+        let obj = e.currentTarget; // 현재 이벤트를 받은 DOM 객체
+        let tagName = obj.tagName; // 태그 이름
+        console.log(obj);
+        console.log(tagName);
+        console.log(e.type);
+      }
+
+      function bubble(e) {
+        //e 는 이벤트 객체
+        //이벤트 버블 => 이벤트가 발생한 타겟에서부터 최상위 window까지
+        let obj = e.currentTarget; // 현재 이벤트를 받은 DOM 객체
+        let tagName = obj.tagName;
+        console.log(obj);
+        console.log(tagName);
+        console.log(e.type);
+      }
+    </script>
+  </body>
+</html>

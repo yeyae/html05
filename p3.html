@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let show = 1;
+      // show 가 1이면 현재 span 태그가 visible인 상태
+      // show 가 0이면 현재 span 태그가 hidden인 상태
+      function toggle() {
+        // show or hide
+        let spanArr = document.getElementsByTagName("span");
+        // 문서내의 모든 span 태그 dom 객체가 들어있는 배열
+
+        if (show == 1) {
+          // show 가 1이면 현재 span 태그가 visible인 상태
+          // 어떤 상황에서 괄호안의 단어를 숨겨야 할까??? => show 가 1이면
+          spanArr[0].style.visibility = "hidden"; // 괄호 안의 단어 숨기기
+          spanArr[1].style.visibility = "hidden"; // 괄호 안의 단어 숨기기
+          spanArr[2].style.visibility = "hidden"; // 괄호 안의 단어 숨기기
+          // hidden 인 상태로 바꿨으니까 show 도 hidden인 상태를 나타내는 0으로 변경
+          show = 0;
+        } else {
+          // show 가 0이면 현재 span 태그가 hidden인 상태
+          // 어떤 상황에서 괄호안의 단어를 보여주게 해야될까???
+          spanArr[0].style.visibility = "visible"; // 괄호 안의 단어가 보이게 바꾼다.
+          spanArr[1].style.visibility = "visible"; // 괄호 안의 단어가 보이게 바꾼다.
+          spanArr[2].style.visibility = "visible"; // 괄호 안의 단어가 보이게 바꾼다.
+          // visible 인 상태로 바꿨으니까 show 도 visible인 상태를 나타내는 1로 변경
+          show = 1;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>다음 빈 곳에 숨은 단어?</h1>
+    <button onclick="toggle()">show/hide</button>
+    <hr />
+    <ul>
+      <li>I (<span>love</span>) you</li>
+      <li>CSS is Cascading (<span>Style</span>) Sheet</li>
+      <li>응답하라 (<span>1998</span>)</li>
+    </ul>
+  </body>
+</html>

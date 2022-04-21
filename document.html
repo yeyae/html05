@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head id="myHead">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹 페이지 제목</title>
+    <script>
+      let text = "html 문서가 로딩중일때 상태 : " + document.readyState + "\n";
+    </script>
+  </head>
+  <body
+    style="background-color: yellow; color: blue; direction: rtl"
+    onload="print()"
+  >
+    <!-- 문서를 오른쪽에서부터 출력 -->
+    <h1>document 객체의 프로퍼티</h1>
+    <hr />
+    <div>이곳은 div 영역입니다.</div>
+    <input id="input" type="text" value="여기 포커스가 있습니다." />
+    <script>
+      function print() {
+        document.getElementById("input").focus(); // id 가 input인 태그에 포커스를 준다.
+
+        text += "document의 위치 : " + document.location + "\n";
+        text += "URL : " + document.URL + "\n";
+        text += "title : " + document.title + "\n";
+        text += "head 태그의 id " + document.head.id + "\n";
+        text +=
+          "body 태그의 배경색 " + document.body.style.backgroundColor + "\n";
+        text += "문서의 로드 완료후 상태 " + document.readyState + "\n";
+        alert(text);
+      }
+
+      /* document에서 id를 사용해서 dom 객체 찾기 getElementById()
+
+         document에서 tag 이름을 사용해서 dom 객체 찾기 
+         getElementByTagName("div") => div태그를 모두가져온다.
+
+         document에서 class 이름을 사용해서 dom 객체 찾기
+         getElementByClassName("myClass") => class가 myClass인 태그를 모두 가져온다.
+      */
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function change() {
+        let spanArr = document.getElementsByTagName("span");
+        // 문서 내에있는 모든 span 태그를 가져와서 배열로 만든다.
+        for (let i = 0; i < 4; i++) {
+          //i가 0,1,2,3 일때 반복문이 실행
+          let span = spanArr[i];
+          span.style.color = "red";
+          span.style.fontSize = "30px";
+        }
+      }
+      function changeC1() {
+        //c1 클래스 를 가진 태그들을 변경
+        let tagArr = document.getElementsByClassName("c1");
+        for (let i = 0; i < tagArr.length; i++) {
+          //i가 0,1,2,3 일때 반복문이 실행
+          let span = tagArr[i];
+          span.style.color = "blue";
+          span.style.fontSize = "30px";
+        }
+      }
+      function changeC2() {
+        //c2 클래스를 가진 태그들을 변경
+        let tagArr = document.getElementsByClassName("c2");
+        for (let i = 0; i < tagArr.length; i++) {
+          //i가 0,1,2,3 일때 반복문이 실행
+          let span = tagArr[i];
+          span.style.color = "teal";
+          span.style.fontSize = "30px";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>태그 찾기</h1>
+    <button onclick="change()">누르세요</button>
+    <button onclick="changeC1()">c1변경</button>
+    <button onclick="changeC2()">c2변경</button>
+    <hr />
+    Lorem ipsum <span class="c1">dolor</span> sit amet, consectetur adipisicing
+    elit. Quasi cumque, amet doloremque assumenda esse,
+    <span class="c2">ipsam</span> ex dolorem, earum enim
+    <span class="c1">excepturi</span> alias! Repudiandae
+    <span class="c2">aliquam</span> sint illo delectus consequatur in eum
+    repellendus.
+  </body>
+</html>

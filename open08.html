@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 200px;
+        font-size: 150px;
+        background-color: pink;
+        border: 2px solid black;
+        text-align: center;
+        display: inline;
+      }
+    </style>
+    <script>
+      let count = 0; // 전체 버튼의 클릭 횟수 저장
+      function clickMe(obj) {
+        // 중복 클릭 방지
+        if (obj.innerText != -1) {
+          // 클릭을하면 0~2 중 하나의 숫자로 변할것이기 때문에
+          // -1 이 아니면 이미 클릭이 된 상태라고 인식.
+          return;
+        }
+
+        // 난수 생성 ( 0~ 2 )
+        let num = Math.floor(Math.random() * 3);
+        // 난수를 태그 안의 텍스트 값으로 할당
+        obj.innerText = num;
+
+        // 버튼의 클릭횟수를 증가시켜준다.
+        count++;
+
+        let divArr = document.getElementsByTagName("div"); // div 태그 모두 가져오기
+
+        let p = obj.parentElement; // 부모 태그도 가져오기 (나중에 버튼 추가하기 위해서)
+
+        let button = document.createElement("button"); // button 태그 생성
+
+        // 버튼의 클릭횟수가 3이면 3개의 버튼이 모두 숫자가 정해진 상태
+        if (count == 3) {
+          // 숫자 3개가 모두 같은지 비교
+          if (
+            divArr[0].innerText == divArr[1].innerText &&
+            divArr[1].innerText == divArr[2].innerText
+          ) {
+            // 0 번째 원소의 innerText , 1번째 원소의 innerText, 2번째 원소의 innerText
+            //숫자 3개가 모두 같으면
+            button.innerText = "성공 (누르면 재시작)"; //버튼 안의 텍스트 설정
+          } else {
+            //숫자 3개중 하나라도 다르면
+            button.innerText = "실패 (누르면 재시작)"; //버튼 안의 텍스트 설정
+          }
+          // 버튼에 이벤트 리스너 추가 (누르면 자기 자신 삭제, 게임 초기화 )
+          button.addEventListener("click", function () {
+            // 버튼에 이벤트 처리함수 등록
+            divArr[0].innerText = -1;
+            divArr[1].innerText = -1;
+            divArr[2].innerText = -1;
+            // 버튼 자기자신 삭제
+            p.removeChild(this);
+            // 여기서 p는 위에서 parentElement를 통해 가져온 부모 객체
+          });
+          //버튼을 html요소에 추가
+          p.appendChild(button);
+          count = 0;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>슬롯머신</h1>
+    <p>
+      각 숫자를 클릭하면 0에서 2 사이의 난수로 바뀝니다. 모두 같은 수가 나오면
+      승리!
+    </p>
+    <hr />
+    <div onclick="clickMe(this)">-1</div>
+    <!-- 값의 범위가 0 ~ 2 이므로 초기값을 나타내려고 -1로 변경 -->
+    <div onclick="clickMe(this)">-1</div>
+    <div onclick="clickMe(this)">-1</div>
+  </body>
+</html>
